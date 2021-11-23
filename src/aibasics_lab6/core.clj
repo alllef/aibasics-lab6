@@ -7,11 +7,16 @@
 
 (defn calc-sum
   [numbers start-value]
-  (if (> (count (rest numbers)) 0)
+  (if (> (count numbers) 0)
     (recur (rest numbers) (+ start-value (first numbers)))
     start-value))
 
-(println  (calc-sum '(5 24 80) 0))
+(defn average-sum
+  [numbers]
+(/ (calc-sum numbers 0) (count numbers))
+  )
+
+(println (average-sum '(33 3 6)))
 
 (defn print-sum
   [numbers]
