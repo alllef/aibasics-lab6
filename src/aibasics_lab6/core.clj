@@ -11,7 +11,7 @@
   (/ (calc-sum numbers 0) (count numbers))
   )
 
-(println (average-sum '(33 3 6)))
+(println (average-sum '(40 25 34 67)))
 
 (defn pow
   [num power]
@@ -34,4 +34,4 @@
       (/ (disp-sum numbers average 0) (count numbers)))
     )
 
-(println (dispersion '(33 6)))
+(println (dispersion '(300 200 500 400)))
