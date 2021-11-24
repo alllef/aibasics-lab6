@@ -1,10 +1,5 @@
 (ns aibasics-lab6.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-
 (defn calc-sum
   [numbers start-value]
   (if (> (count numbers) 0)
@@ -13,15 +8,30 @@
 
 (defn average-sum
   [numbers]
-(/ (calc-sum numbers 0) (count numbers))
+  (/ (calc-sum numbers 0) (count numbers))
   )
 
 (println (average-sum '(33 3 6)))
 
-(defn print-sum
-  [numbers]
-  (if (> (count (rest numbers)) 0)
-    (recur (rest numbers))
-    (println numbers)))
+(defn pow
+  [num power]
+  (if (> power 1)
+    (recur (* num num) (dec power))
+    num))
 
-;(print-sum '(5 24 80))
+(defn disp-sum
+  [numbers average start-value]
+  (if (> (count numbers) 0)
+    (recur (rest numbers) average
+           (+ start-value (pow (- (first numbers) average) 2)))
+           start-value)
+    )
+
+  (defn dispersion
+    [numbers]
+    (let [average (average-sum numbers)
+          ]
+      (/ (disp-sum numbers average 0) (count numbers)))
+    )
+
+(println (dispersion '(33 6)))
